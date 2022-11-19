@@ -1,14 +1,11 @@
 import { RECEIVE_USERS } from "redux/actions/users";
 
 interface usersProps {
-  state: any;
-  action: {
-    type: string;
-    users: any;
-  };
+  type: string;
+  users: any;
 }
 
-export function users({ state = {}, action }: usersProps) {
+export function users(state: any = {}, action: usersProps) {
   switch (action.type) {
     case RECEIVE_USERS:
       return {
