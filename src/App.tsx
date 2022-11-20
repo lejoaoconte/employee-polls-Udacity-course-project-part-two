@@ -1,6 +1,15 @@
 import { useEffect } from "react";
+
 import { connect } from "react-redux";
+
+import { Route, Routes } from "react-router-dom";
+
 import { handleInitialData } from "redux/actions";
+
+import Login from "pages/Login";
+import Dashboard from "pages/Dashboard";
+
+import PrivateRoute from "routes/PrivateRoute";
 
 function App(props: any) {
   useEffect(() => {
@@ -8,9 +17,17 @@ function App(props: any) {
   }, [props]);
 
   return (
-    <div>
-      <h1>App</h1>
-    </div>
+    <Routes>
+      <Route path="/" element={<Login />} />
+      <Route
+        path="/dashboard"
+        element={
+          <PrivateRoute>
+            <Dashboard />
+          </PrivateRoute>
+        }
+      />
+    </Routes>
   );
 }
 
