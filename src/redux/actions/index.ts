@@ -1,4 +1,5 @@
 import { getInitialData } from "services/api";
+
 import { receiveQuestions } from "./questions";
 import { receiveUsers } from "./users";
 

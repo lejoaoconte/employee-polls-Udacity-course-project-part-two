@@ -1,3 +1,5 @@
+import { connect } from "react-redux";
+
 export function Dashboard() {
   return (
     <div>
@@ -5,3 +7,6 @@ export function Dashboard() {
     </div>
   );
 }
+
+
+export default connect()(Dashboard)
