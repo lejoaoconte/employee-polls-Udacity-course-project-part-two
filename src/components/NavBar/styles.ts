@@ -35,9 +35,9 @@ export const NavBarItems = styled.ul<NavBarItemsProps>`
   gap: 15px;
 
   @media screen and (max-width: 600px) {
-    display: ${({ openMenu }) => (openMenu ? "none" : "flex")};
+    display: ${({ openMenu }) => (openMenu ? "flex" : "none")};
 
-    position: absolute;
+    position: fixed;
 
     left: 0;
     bottom: 0;
@@ -55,7 +55,7 @@ export const NavBarItems = styled.ul<NavBarItemsProps>`
     box-shadow: 0 -3px 18px -3px rgba(31, 31, 31, 0.75);
 
     animation-name: example;
-    animation-duration: 4s;
+    animation-duration: 1s;
 
     @keyframes example {
       from {
