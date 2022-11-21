@@ -20,7 +20,7 @@ function Login({ dispatch, loggedIn, authedUser }: any) {
       navigate("/dashboard");
     } else {
       const user = localStorage.getItem("authedUser");
-      dispatch(setAuthedUser(user));
+      if (user !== null) dispatch(setAuthedUser(JSON.parse(user)));
     }
   }, [dispatch, loggedIn, navigate, authedUser]);
 

@@ -3,6 +3,8 @@ import ReactDOM from "react-dom/client";
 
 import { BrowserRouter } from "react-router-dom";
 
+import LoadingBar from "react-redux-loading-bar";
+
 import App from "App";
 
 import { Default as Layout } from "layouts/Default";
@@ -22,6 +24,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <Provider store={store}>
+    <LoadingBar style={{ backgroundColor: "#2450b4", height: "5px" }} />
     <BrowserRouter>
       <Layout>
         <App />

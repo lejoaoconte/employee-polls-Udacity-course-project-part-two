@@ -25,7 +25,7 @@ export const ContextDefaultTheme = createContext(
 );
 
 export function Default({ children }: DefaultLayoutProps) {
-  const [theme, setTheme] = useState(false);
+  const [theme, setTheme] = useState(true);
 
   return (
     <ContextDefaultTheme.Provider value={{ setTheme, theme }}>
