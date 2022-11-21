@@ -10,6 +10,7 @@ import Login from "pages/Login";
 import Dashboard from "pages/Dashboard";
 
 import PrivateRoute from "routes/PrivateRoute";
+import Question from "pages/Question";
 
 function App(props: any) {
   useEffect(() => {
@@ -24,6 +25,14 @@ function App(props: any) {
         element={
           <PrivateRoute>
             <Dashboard />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/question/:questionId"
+        element={
+          <PrivateRoute>
+            <Question />
           </PrivateRoute>
         }
       />
