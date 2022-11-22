@@ -20,7 +20,7 @@ import {
   NavBarItems,
 } from "./styles";
 
-export function NavBar({ dispatch }: any) {
+function NavBar({ dispatch }: any) {
   const navigate = useNavigate();
   const { setTheme, theme } = useContext(ContextDefaultTheme);
   const [openMenu, setOpenMenu] = useState(false);
@@ -40,10 +40,10 @@ export function NavBar({ dispatch }: any) {
   }
 
   return (
-    <ContainerNavBar>
+    <ContainerNavBar data-testid='navbar-test'>
       <img width={50} src="/logo.svg" alt="" />
       <MenuItems>
-        <Switch label="switch" onChange={handleChangeTheme} checked={theme} />
+        <Switch data-testid='navbar-switch-test' label="switch" onChange={handleChangeTheme} checked={theme} />
         <NavBarItems openMenu={openMenu}>
           <ListItemNav>
             <Link to="/dashboard">Home</Link>
@@ -55,10 +55,10 @@ export function NavBar({ dispatch }: any) {
             <Link to="/newpoll">New Poll</Link>
           </ListItemNav>
           <ListItemNav>
-            <button onClick={handleLogout}>Logout</button>
+            <button data-testid='navbar-button-logout-test' onClick={handleLogout}>Logout</button>
           </ListItemNav>
         </NavBarItems>
-        <ButtonOpenMenu onClick={handleOpenMenu}>
+        <ButtonOpenMenu data-testid='navbar-button-open-test' onClick={handleOpenMenu}>
           <FaBars />
         </ButtonOpenMenu>
       </MenuItems>

@@ -10,7 +10,7 @@ export function Input({ label, ...props }: InputProps) {
   return (
     <InputContainer>
       <InputLabel htmlFor={`input-${label}`}>{label}</InputLabel>
-      <InputComponents placeholder={label} {...props} id={`input-${label}`} />
+      <InputComponents data-testid='input-test' placeholder={label} {...props} id={`input-${label}`} />
     </InputContainer>
   );
 }

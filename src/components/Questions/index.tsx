@@ -10,12 +10,17 @@ export function Questions({ questions, users }: any) {
   function handleClick(questionId: string) {
     navigate(`/question/${questionId}`);
   }
+
   return (
-    <QuestionsArea>
+    <QuestionsArea data-testid="questions-test">
       <QuestionsItems>
-        {questions.map((question: any) => (
-          <li key={question.id} onClick={() => handleClick(question.id)}>
-            <img src={users[question.author].avatarURL} alt="aa" />
+        {questions?.map((question: any) => (
+          <li
+            data-testid="questions-item-test"
+            key={question.id}
+            onClick={() => handleClick(question.id)}
+          >
+            <img src={users[question.author]?.avatarURL} alt="user" />
             <p>
               Created by{" "}
               <span>
@@ -24,7 +29,7 @@ export function Questions({ questions, users }: any) {
                     Object.values(users)?.find(
                       (user: any) => user.id === question.author
                     ) as any
-                  ).name
+                  )?.name
                 }
               </span>
             </p>
