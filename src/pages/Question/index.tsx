@@ -13,7 +13,7 @@ import {
   QuestionContainer,
 } from "./styles";
 
-function Question({ dispatch, questions, authedUser }: any) {
+function Question({ dispatch, questions, authedUser, users }: any) {
   const { questionId } = useParams();
 
   const question: any = Object.values(questions).find(
@@ -32,7 +32,16 @@ function Question({ dispatch, questions, authedUser }: any) {
 
   return (
     <QuestionContainer>
-      <h1>Question created by {question?.author}</h1>
+      <h1>
+        Question created by{" "}
+        {
+          (
+            Object.values(users)?.find(
+              (user: any) => user.id === question.author
+            ) as any
+          ).name
+        }
+      </h1>
       <ButtonsQuestionsArea>
         <ButtonsAnswered
           onClick={() => {
@@ -68,10 +77,11 @@ function Question({ dispatch, questions, authedUser }: any) {
   );
 }
 
-function mapStateToProps({ questions, authedUser }: any) {
+function mapStateToProps({ questions, authedUser, users }: any) {
   return {
     questions,
     authedUser,
+    users,
   };
 }
 

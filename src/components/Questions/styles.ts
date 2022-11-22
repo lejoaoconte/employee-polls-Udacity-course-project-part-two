@@ -31,6 +31,12 @@ export const QuestionsItems = styled.ul`
 
     span {
       font-weight: 800;
+
+      &.time {
+        font-size: 0.8rem;
+        font-weight: normal;
+        margin-left: auto;
+      }
     }
 
     img {

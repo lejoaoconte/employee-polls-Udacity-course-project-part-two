@@ -12,6 +12,7 @@ import Dashboard from "pages/Dashboard";
 import PrivateRoute from "routes/PrivateRoute";
 import Question from "pages/Question";
 import NewQuestion from "pages/NewQuestion";
+import Leaderboard from "pages/Leaderboard";
 
 function App(props: any) {
   useEffect(() => {
@@ -42,6 +43,14 @@ function App(props: any) {
         element={
           <PrivateRoute>
             <NewQuestion />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/leaderboard"
+        element={
+          <PrivateRoute>
+            <Leaderboard />
           </PrivateRoute>
         }
       />
