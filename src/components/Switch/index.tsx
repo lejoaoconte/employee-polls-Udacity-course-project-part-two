@@ -8,7 +8,13 @@ interface SwitchProps extends InputHTMLAttributes<HTMLInputElement> {
 export function Switch({ label, ...props }: SwitchProps) {
   return (
     <ContainerSwitch>
-      <InputSwitch {...props} type="checkbox" id={label} hidden />
+      <InputSwitch
+        data-testid="switch-test"
+        {...props}
+        type="checkbox"
+        id={label}
+        hidden
+      />
       <LabelInputSwitch htmlFor={label}></LabelInputSwitch>
     </ContainerSwitch>
   );
