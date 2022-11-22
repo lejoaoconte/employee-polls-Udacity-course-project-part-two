@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { FormEvent, useEffect } from "react";
 
 import { connect } from "react-redux";
 
@@ -24,10 +24,14 @@ function Login({ dispatch, loggedIn, authedUser }: any) {
     }
   }, [dispatch, loggedIn, navigate, authedUser]);
 
-  function handleLogin(e: any) {
+  function handleLogin(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-
-    dispatch(onLoginUser(e.target.login.value, e.target.password.value));
+    dispatch(
+      onLoginUser(
+        e.currentTarget["login"].value,
+        e.currentTarget["password"].value
+      )
+    );
   }
 
   return (

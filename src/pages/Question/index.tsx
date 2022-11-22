@@ -6,6 +6,10 @@ import { handleAnswerQuestion } from "redux/actions/questions";
 import {
   ButtonsAnswered,
   ButtonsQuestionsArea,
+  GraphQuestion,
+  GraphQuestionsArea,
+  OptionOneRange,
+  OptionTwoRange,
   QuestionContainer,
 } from "./styles";
 
@@ -20,6 +24,11 @@ function Question({ dispatch, questions, authedUser }: any) {
   const answeredTwo = question?.optionTwo.votes.includes(authedUser.id);
 
   const aswered = answeredOne || answeredTwo;
+
+  const totalAnswersOne = question?.optionOne?.votes?.length;
+  const totalAnswersTwo = question?.optionTwo?.votes?.length;
+
+  const TotalVotes = totalAnswersOne + totalAnswersTwo;
 
   return (
     <QuestionContainer>
@@ -46,6 +55,15 @@ function Question({ dispatch, questions, authedUser }: any) {
           2. {question?.optionTwo?.text}
         </ButtonsAnswered>
       </ButtonsQuestionsArea>
+      {aswered ? (
+        <GraphQuestionsArea>
+          <h4>Aswers</h4>
+          <GraphQuestion>
+            <OptionOneRange width={(totalAnswersOne / TotalVotes) * 100} />
+            <OptionTwoRange width={(totalAnswersTwo / TotalVotes) * 100} />
+          </GraphQuestion>
+        </GraphQuestionsArea>
+      ) : null}
     </QuestionContainer>
   );
 }
