@@ -1,4 +1,8 @@
-import { ANSWER_USER_QUESTION, RECEIVE_USERS } from "redux/actions/users";
+import {
+  ANSWER_USER_QUESTION,
+  RECEIVE_USERS,
+  USER_NEW_QUESTION,
+} from "redux/actions/users";
 
 interface usersProps {
   type: string;
@@ -15,6 +19,14 @@ export function users(state: any = {}, action: usersProps) {
         ...action.users,
       };
     case ANSWER_USER_QUESTION:
+      return {
+        ...state,
+        [action.authedUser]: {
+          ...state[action.authedUser],
+          questions: state[action.authedUser].questions.concat(action.qid),
+        },
+      };
+    case USER_NEW_QUESTION:
       return {
         ...state,
         [action.authedUser]: {

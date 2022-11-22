@@ -2,7 +2,7 @@ import { hideLoading, showLoading } from "react-redux-loading-bar";
 
 import { saveQuestion, saveQuestionAnswer } from "services/api";
 
-import { AnswerUserQuestion } from "./users";
+import { AnswerUserQuestion, newQuestionUSer } from "./users";
 import { toast } from "react-toastify";
 
 export const RECEIVE_QUESTIONS = "RECEIVE_QUESTIONS";
@@ -56,13 +56,15 @@ export function handleSaveQuestion(
   return async (dispatch: any, getState: any) => {
     dispatch(showLoading());
     const { authedUser } = getState();
-    const id = authedUser.id;
-    const question = await saveQuestion({
+    const idUser = authedUser.id;
+    const question: any = await saveQuestion({
       optionOneText,
       optionTwoText,
-      author: id,
+      author: idUser,
     });
+    const idQuestion = question?.id;
     dispatch(newQuestion(question));
+    dispatch(newQuestionUSer(idUser, idQuestion));
     dispatch(hideLoading());
     dispatch(() => toast.success("Poll saved!"));
   };
