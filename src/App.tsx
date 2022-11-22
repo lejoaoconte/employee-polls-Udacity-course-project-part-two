@@ -11,6 +11,7 @@ import Dashboard from "pages/Dashboard";
 
 import PrivateRoute from "routes/PrivateRoute";
 import Question from "pages/Question";
+import NewQuestion from "pages/NewQuestion";
 
 function App(props: any) {
   useEffect(() => {
@@ -33,6 +34,14 @@ function App(props: any) {
         element={
           <PrivateRoute>
             <Question />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/newpoll"
+        element={
+          <PrivateRoute>
+            <NewQuestion />
           </PrivateRoute>
         }
       />
