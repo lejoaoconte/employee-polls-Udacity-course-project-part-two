@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import { handleAnswerQuestion } from "redux/actions/questions";
 
 import {
@@ -13,13 +13,7 @@ import {
   QuestionContainer,
 } from "./styles";
 
-function Question({ dispatch, questions, authedUser, users }: any) {
-  const { questionId } = useParams();
-
-  const question: any = Object.values(questions).find(
-    (question: any) => question.id === questionId
-  );
-
+function Question({ dispatch, question, authedUser, users }: any) {
   const answeredOne = question?.optionOne.votes.includes(authedUser.id);
   const answeredTwo = question?.optionTwo.votes.includes(authedUser.id);
 
@@ -39,7 +33,7 @@ function Question({ dispatch, questions, authedUser, users }: any) {
             Object.values(users)?.find(
               (user: any) => user.id === question.author
             ) as any
-          ).name
+          )?.name
         }
       </h1>
       <ButtonsQuestionsArea>
@@ -78,11 +72,19 @@ function Question({ dispatch, questions, authedUser, users }: any) {
 }
 
 function mapStateToProps({ questions, authedUser, users }: any) {
-  return {
-    questions,
-    authedUser,
-    users,
-  };
+  try {
+    const question: any = Object.values(questions).find(
+      (question: any) => question.id === useParams().questionId
+    );
+
+    return {
+      question,
+      authedUser,
+      users,
+    };
+  } catch (e) {
+    return <Navigate to="/404" />;
+  }
 }
 
 export default connect(mapStateToProps)(Question);

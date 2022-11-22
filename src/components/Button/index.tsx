@@ -6,6 +6,6 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   label: string;
 }
 
-export function Button({ label }: ButtonProps) {
-  return <ButtonContainer data-testid='button-test'>{label}</ButtonContainer>;
+export function Button({ label, ...props }: ButtonProps) {
+  return <ButtonContainer {...props} data-testid='button-test'>{label}</ButtonContainer>;
 }
