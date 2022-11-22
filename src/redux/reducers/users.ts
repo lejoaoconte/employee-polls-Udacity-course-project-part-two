@@ -9,6 +9,7 @@ interface usersProps {
   users: any;
   qid: string;
   authedUser: string;
+  answer: string;
 }
 
 export function users(state: any = {}, action: usersProps) {
@@ -23,7 +24,10 @@ export function users(state: any = {}, action: usersProps) {
         ...state,
         [action.authedUser]: {
           ...state[action.authedUser],
-          questions: state[action.authedUser].questions.concat(action.qid),
+          answers: {
+            ...state[action.authedUser].answers,
+            [action.qid]: action.answer,
+          },
         },
       };
     case USER_NEW_QUESTION:
