@@ -1,3 +1,5 @@
+import React from "react";
+
 import { fireEvent, render } from "@testing-library/react";
 
 import { Button } from ".";
@@ -19,12 +21,12 @@ describe("Button", () => {
   };
 
   it("Testing render on screen", () => {
-    const { button } = setup();
+    const { button }: any = setup();
     expect(button).toBeInTheDocument;
   });
 
   it("Test button click", () => {
-    const { button } = setup();
+    const { button }: any = setup();
     fireEvent.click(button);
   });
 });

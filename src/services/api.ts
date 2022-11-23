@@ -13,10 +13,10 @@ export async function getInitialData() {
   };
 }
 
-export function saveQuestionAnswer(info) {
+export function saveQuestionAnswer(info: any) {
   return _saveQuestionAnswer(info);
 }
 
-export function saveQuestion(info) {
+export function saveQuestion(info: any) {
   return _saveQuestion(info);
 }

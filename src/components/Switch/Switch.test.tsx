@@ -15,12 +15,12 @@ describe("Switch", () => {
   };
 
   it("Testing render on screen", () => {
-    const { switchComponent } = setup();
+    const { switchComponent }: any = setup();
     expect(switchComponent).toBeInTheDocument;
   });
 
   it("Test clicked on switch", () => {
-    const { switchComponent } = setup();
+    const { switchComponent }: any = setup();
 
     expect(switchComponent.checked).toEqual(false);
     fireEvent.click(switchComponent);

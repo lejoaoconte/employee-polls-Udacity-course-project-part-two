@@ -12,7 +12,7 @@ describe("_DATA testing _saveQuestion", () => {
   });
 
   it("Test _saveQuestion is false", async () => {
-    const value = undefined;
+    const value: any = undefined;
 
     const rej = await _saveQuestion({
       author: "sarahedo",
@@ -36,7 +36,7 @@ describe("_DATA testing _saveQuestionAnswer", () => {
   });
 
   it("Test _saveQuestionAnswer is false", async () => {
-    const value = undefined;
+    const value: any = undefined;
 
     const rej = await _saveQuestionAnswer({
       authedUser: "sarahedo",

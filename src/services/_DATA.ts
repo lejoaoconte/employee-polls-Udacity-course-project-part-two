@@ -1,4 +1,4 @@
-let users = {
+let users: any = {
   sarahedo: {
     id: "sarahedo",
     password: "password123",
@@ -47,7 +47,7 @@ let users = {
   },
 };
 
-let questions = {
+let questions: any = {
   "8xf0y6ziyjabvozdd253nd": {
     id: "8xf0y6ziyjabvozdd253nd",
     author: "sarahedo",
@@ -147,7 +147,17 @@ export function _getQuestions() {
   });
 }
 
-function formatQuestion({ optionOneText, optionTwoText, author }) {
+interface formatQuestionProps {
+  optionOneText: string;
+  optionTwoText: string;
+  author: string;
+}
+
+function formatQuestion({
+  optionOneText,
+  optionTwoText,
+  author,
+}: formatQuestionProps) {
   return {
     id: generateUID(),
     timestamp: Date.now(),
@@ -163,7 +173,7 @@ function formatQuestion({ optionOneText, optionTwoText, author }) {
   };
 }
 
-export function _saveQuestion(question) {
+export function _saveQuestion(question: formatQuestionProps) {
   return new Promise((resolve, reject) => {
     if (
       !question.optionOneText ||
@@ -185,7 +195,17 @@ export function _saveQuestion(question) {
   });
 }
 
-export function _saveQuestionAnswer({ authedUser, qid, answer }) {
+interface _saveQuestionAnswerProps {
+  authedUser: string;
+  qid: string;
+  answer: string;
+}
+
+export function _saveQuestionAnswer({
+  authedUser,
+  qid,
+  answer,
+}: _saveQuestionAnswerProps) {
   console.log({
     authedUser,
     qid,
@@ -206,7 +226,7 @@ export function _saveQuestionAnswer({ authedUser, qid, answer }) {
             [qid]: answer,
           },
         },
-      };
+      } as any;
 
       questions = {
         ...questions,
@@ -217,7 +237,7 @@ export function _saveQuestionAnswer({ authedUser, qid, answer }) {
             votes: questions[qid][answer].votes.concat([authedUser]),
           },
         },
-      };
+      } as any;
 
       resolve(true);
     }, 500);

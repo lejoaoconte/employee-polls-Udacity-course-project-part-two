@@ -4,7 +4,15 @@ import {
   USER_NEW_QUESTION,
 } from "redux/actions/users";
 
-export function users(state = {}, action) {
+interface usersProps {
+  type: string;
+  users: any;
+  qid: string;
+  authedUser: string;
+  answer: string;
+}
+
+export function users(state: any = {}, action: usersProps) {
   switch (action.type) {
     case RECEIVE_USERS:
       return {

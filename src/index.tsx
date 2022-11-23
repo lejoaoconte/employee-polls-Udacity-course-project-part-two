@@ -36,7 +36,9 @@ const ToastItem = () => (
   />
 );
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(
+  document.getElementById("root") as HTMLElement
+);
 root.render(
   <Provider store={store}>
     <LoadingBar style={{ backgroundColor: "#2450b4", height: "5px" }} />

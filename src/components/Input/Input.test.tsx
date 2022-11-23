@@ -15,12 +15,12 @@ describe("Input", () => {
   };
 
   it("Testing render on screen", () => {
-    const { input } = setup();
+    const { input }: any = setup();
     expect(input).toBeInTheDocument;
   });
 
   it("Test alter text", () => {
-    const { input } = setup();
+    const { input }: any = setup();
 
     expect(input.value).toBe("");
     fireEvent.change(input, { target: { value: "Testinput" } });

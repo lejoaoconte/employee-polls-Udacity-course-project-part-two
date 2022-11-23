@@ -9,14 +9,18 @@ export const RECEIVE_QUESTIONS = "RECEIVE_QUESTIONS";
 export const ANSWER_QUESTION = "ANSWER_QUESTION";
 export const NEW_QUESTION = "NEW_QUESTION";
 
-export function receiveQuestions(questions) {
+export function receiveQuestions(questions: any) {
   return {
     type: RECEIVE_QUESTIONS,
     questions,
   };
 }
 
-export function answerQuestion(authedUser, qid, answer) {
+export function answerQuestion(
+  authedUser: string,
+  qid: string,
+  answer: string
+) {
   return {
     type: ANSWER_QUESTION,
     authedUser,
@@ -25,15 +29,15 @@ export function answerQuestion(authedUser, qid, answer) {
   };
 }
 
-export function newQuestion(question) {
+export function newQuestion(question: any) {
   return {
     type: NEW_QUESTION,
     question,
   };
 }
 
-export function handleAnswerQuestion(qid, answer) {
-  return async (dispatch, getState) => {
+export function handleAnswerQuestion(qid: string, answer: string) {
+  return async (dispatch: any, getState: any) => {
     dispatch(showLoading());
     const { authedUser } = getState();
     const id = authedUser.id;
@@ -45,12 +49,15 @@ export function handleAnswerQuestion(qid, answer) {
   };
 }
 
-export function handleSaveQuestion(optionOneText, optionTwoText) {
-  return async (dispatch, getState) => {
+export function handleSaveQuestion(
+  optionOneText: string,
+  optionTwoText: string
+) {
+  return async (dispatch: any, getState: any) => {
     dispatch(showLoading());
     const { authedUser } = getState();
     const idUser = authedUser.id;
-    const question = await saveQuestion({
+    const question: any = await saveQuestion({
       optionOneText,
       optionTwoText,
       author: idUser,

@@ -1,7 +1,11 @@
 import { InputHTMLAttributes } from "react";
 import { ContainerSwitch, InputSwitch, LabelInputSwitch } from "./styles";
 
-export function Switch({ label, ...props }) {
+interface SwitchProps extends InputHTMLAttributes<HTMLInputElement> {
+  label: string;
+}
+
+export function Switch({ label, ...props }: SwitchProps) {
   return (
     <ContainerSwitch>
       <InputSwitch

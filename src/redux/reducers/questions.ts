@@ -4,7 +4,16 @@ import {
   NEW_QUESTION,
 } from "redux/actions/questions";
 
-export function questions(state = {}, action) {
+interface questionsProps {
+  type: string;
+  questions: any;
+  authedUser: string;
+  qid: string;
+  answer: string;
+  question: any;
+}
+
+export function questions(state: any = {}, action: questionsProps) {
   switch (action.type) {
     case RECEIVE_QUESTIONS:
       return {

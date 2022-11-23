@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, ReactNode, useState } from "react";
 
 import styled, { ThemeProvider } from "styled-components";
 
@@ -11,9 +11,20 @@ export const Container = styled.div`
   padding: 0;
 `;
 
-export const ContextDefaultTheme = createContext({});
+interface DefaultLayoutProps {
+  children: ReactNode;
+}
 
-export function Default({ children }) {
+interface ContextDefaultThemeProps {
+  theme: boolean;
+  setTheme: (value: boolean) => void;
+}
+
+export const ContextDefaultTheme = createContext(
+  {} as ContextDefaultThemeProps
+);
+
+export function Default({ children }: DefaultLayoutProps) {
   const [theme, setTheme] = useState(true);
 
   return (

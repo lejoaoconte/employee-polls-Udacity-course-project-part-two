@@ -1,8 +1,12 @@
-import React from "react";
+import { InputHTMLAttributes } from "react";
 
 import { InputComponents, InputContainer, InputLabel } from "./styles";
 
-export function Input({ label, ...props }) {
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+  label: string;
+}
+
+export function Input({ label, ...props }: InputProps) {
   return (
     <InputContainer>
       <InputLabel htmlFor={`input-${label}`}>{label}</InputLabel>

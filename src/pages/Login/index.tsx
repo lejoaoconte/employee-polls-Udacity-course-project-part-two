@@ -1,17 +1,17 @@
-import React, { useEffect } from "react";
+import React, { FormEvent, useEffect } from "react";
 
 import { connect } from "react-redux";
 
 import { useNavigate } from "react-router-dom";
 
-import { onLoginUser } from "redux/actions/authedUser";
+import { onLoginUser, setAuthedUser } from "redux/actions/authedUser";
 
 import { Button } from "components/Button";
 import { Input } from "components/Input";
 
 import { ContainerLogin, FormArea } from "./styles";
 
-function Login({ dispatch, loggedIn }) {
+function Login({ dispatch, loggedIn, authedUser }: any) {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -24,9 +24,9 @@ function Login({ dispatch, loggedIn }) {
       const user = localStorage.getItem("authedUser");
       if (user !== null) dispatch(setAuthedUser(JSON.parse(user)));
     }
-  }, [loggedIn, navigate]);
+  }, [loggedIn, navigate, authedUser, dispatch]);
 
-  function handleLogin(e) {
+  function handleLogin(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     dispatch(
       onLoginUser(
@@ -48,9 +48,10 @@ function Login({ dispatch, loggedIn }) {
   );
 }
 
-function mapStateToProps({ authedUser }) {
+function mapStateToProps({ authedUser }: any) {
   return {
     loggedIn: !!authedUser,
+    authedUser,
   };
 }
 

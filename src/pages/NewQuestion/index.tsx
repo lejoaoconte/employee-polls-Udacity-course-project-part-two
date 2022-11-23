@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FormEvent } from "react";
 
 import { connect } from "react-redux";
 
@@ -11,10 +11,10 @@ import { handleSaveQuestion } from "redux/actions/questions";
 
 import { NewQuestionContainer } from "./styles";
 
-function NewQuestion({ dispatch }) {
+function NewQuestion({ dispatch }: any) {
   const navigate = useNavigate();
 
-  function onSubmitQuestion(e) {
+  function onSubmitQuestion(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
     const optionOneText = e.currentTarget["optionOne"].value;

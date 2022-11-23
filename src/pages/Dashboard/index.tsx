@@ -8,7 +8,7 @@ import { ContainerDashboard, TitleDashboard } from "./styles";
 
 import { Questions } from "components/Questions";
 
-export function Dashboard({ authedUser, questions, users }) {
+export function Dashboard({ authedUser, questions, users }: any) {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -16,13 +16,13 @@ export function Dashboard({ authedUser, questions, users }) {
   }, [authedUser, navigate]);
 
   const aswered = questions.filter(
-    (question) =>
+    (question: any) =>
       question.optionOne.votes.includes(authedUser.id) ||
       question.optionTwo.votes.includes(authedUser.id)
   );
 
   const unaswered = questions.filter(
-    (question) =>
+    (question: any) =>
       !question.optionOne.votes.includes(authedUser.id) &&
       !question.optionTwo.votes.includes(authedUser.id)
   );
@@ -37,11 +37,11 @@ export function Dashboard({ authedUser, questions, users }) {
   );
 }
 
-function mapStateToProps({ authedUser, questions, users }) {
+function mapStateToProps({ authedUser, questions, users }: any) {
   return {
     authedUser,
     questions: Object.values(questions).sort(
-      (a, b) => b.timestamp - a.timestamp
+      (a: any, b: any) => b.timestamp - a.timestamp
     ),
     users,
   };
