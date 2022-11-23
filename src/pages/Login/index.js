@@ -16,9 +16,13 @@ function Login({ dispatch, loggedIn }) {
 
   useEffect(() => {
     if (loggedIn) {
+      localStorage.setItem("authedUser", JSON.stringify(authedUser));
       const urlParams = new URLSearchParams(window.location.search);
       const redirectUrl = urlParams.get("redirectTo");
       navigate(redirectUrl ? redirectUrl : "/dashboard");
+    } else {
+      const user = localStorage.getItem("authedUser");
+      if (user !== null) dispatch(setAuthedUser(JSON.parse(user)));
     }
   }, [loggedIn, navigate]);
 

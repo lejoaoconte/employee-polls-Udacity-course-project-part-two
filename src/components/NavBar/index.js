@@ -20,7 +20,7 @@ import {
   NavBarItems,
 } from "./styles";
 
-function NavBar({ dispatch, authedUser }) {
+function NavBar({ dispatch, authedUser }: any) {
   const navigate = useNavigate();
   const { setTheme, theme } = useContext(ContextDefaultTheme);
   const [openMenu, setOpenMenu] = useState(false);
@@ -79,7 +79,7 @@ function NavBar({ dispatch, authedUser }) {
   );
 }
 
-function mapStateToProps({ authedUser }) {
+function mapStateToProps({ authedUser }: any) {
   return {
     authedUser,
   };

@@ -14,7 +14,6 @@ const PrivateRoute = ({ children, loggedIn }) => {
       const redirectUrl = window.location.href
         .toString()
         .split(window.location.host)[1];
-
       navigate(`/?redirectTo=${redirectUrl}`);
     }
   }, [loggedIn, navigate]);

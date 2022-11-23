@@ -31,7 +31,7 @@ export function Dashboard({ authedUser, questions, users }) {
     <ContainerDashboard>
       <TitleDashboard>New Questions</TitleDashboard>
       <Questions questions={unaswered} users={users} />
-      <TitleDashboard>Answered Questions</TitleDashboard>
+      <TitleDashboard>Aswered Questions</TitleDashboard>
       <Questions questions={aswered} users={users} />
     </ContainerDashboard>
   );

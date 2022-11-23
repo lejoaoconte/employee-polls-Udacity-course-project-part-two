@@ -105,7 +105,7 @@ export const OptionTwoRange = styled.div`
   background: #a47e3b;
 `;
 
-export const TotalsArea = styled.div`
+export const AnswerArea = styled.div`
   width: 100%;
 
   display: flex;
