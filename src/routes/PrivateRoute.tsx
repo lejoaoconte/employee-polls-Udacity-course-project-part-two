@@ -16,7 +16,10 @@ const PrivateRoute = ({ children, loggedIn }: PrivateRouteProps) => {
 
   useEffect(() => {
     if (!loggedIn) {
-      navigate("/");
+      const redirectUrl = window.location.href
+        .toString()
+        .split(window.location.host)[1];
+      navigate(`/?redirectTo=${redirectUrl}`);
     }
   }, [loggedIn, navigate]);
 

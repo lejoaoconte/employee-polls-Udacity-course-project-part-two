@@ -7,6 +7,11 @@ export const QuestionContainer = styled.div`
   justify-content: center;
 
   gap: 20px;
+
+  img {
+    width: 150px;
+    border-radius: 100%;
+  }
 `;
 
 export const ButtonsQuestionsArea = styled.div`
@@ -107,4 +112,13 @@ export const OptionTwoRange = styled.div<OptionOneTwoRangeProps>`
   width: ${({ width }) => `${width}%`};
   height: 30px;
   background: #a47e3b;
+`;
+
+export const AnswerArea = styled.div`
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 `;

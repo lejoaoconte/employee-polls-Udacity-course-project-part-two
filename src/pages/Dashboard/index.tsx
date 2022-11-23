@@ -18,9 +18,9 @@ export function Dashboard({ authedUser, questions, users }: any) {
 
   return (
     <ContainerDashboard>
-      <TitleDashboard>Unaswered</TitleDashboard>
+      <TitleDashboard>New Questions</TitleDashboard>
       <Questions questions={unaswered} users={users} />
-      <TitleDashboard>Aswered</TitleDashboard>
+      <TitleDashboard>Aswered Questions</TitleDashboard>
       <Questions questions={aswered} users={users} />
     </ContainerDashboard>
   );

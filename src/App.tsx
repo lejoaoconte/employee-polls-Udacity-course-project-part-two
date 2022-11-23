@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 import { connect } from "react-redux";
 
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
 import { handleInitialData } from "redux/actions";
 
@@ -55,8 +55,7 @@ function App(props: any) {
           </PrivateRoute>
         }
       />
-      <Route path="/404" element={<Error404 />} />
-      <Route path="*" element={<Navigate to="/404" />} />
+      <Route path="*" element={<Error404 />} />
     </Routes>
   );
 }

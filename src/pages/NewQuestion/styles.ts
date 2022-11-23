@@ -4,7 +4,7 @@ export const NewQuestionContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
 
   h1 {
     margin-bottom: 40px;

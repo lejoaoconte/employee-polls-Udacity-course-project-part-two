@@ -27,7 +27,7 @@ function NewQuestion({ dispatch }: any) {
 
   return (
     <NewQuestionContainer>
-      <h1>Please enter with the two questions for poll:</h1>
+      <h1>New Poll:</h1>
       <form onSubmit={onSubmitQuestion}>
         <Input name="optionOne" label="First question" required />
         <Input name="optionTwo" label="Second question" required />

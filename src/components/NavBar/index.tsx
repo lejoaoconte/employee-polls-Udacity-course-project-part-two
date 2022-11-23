@@ -20,7 +20,7 @@ import {
   NavBarItems,
 } from "./styles";
 
-function NavBar({ dispatch }: any) {
+function NavBar({ dispatch, authedUser }: any) {
   const navigate = useNavigate();
   const { setTheme, theme } = useContext(ContextDefaultTheme);
   const [openMenu, setOpenMenu] = useState(false);
@@ -40,10 +40,16 @@ function NavBar({ dispatch }: any) {
   }
 
   return (
-    <ContainerNavBar data-testid='navbar-test'>
+    <ContainerNavBar data-testid="navbar-test">
       <img width={50} src="/logo.svg" alt="" />
       <MenuItems>
-        <Switch data-testid='navbar-switch-test' label="switch" onChange={handleChangeTheme} checked={theme} />
+        <p>Hi, {authedUser?.name}</p>
+        <Switch
+          data-testid="navbar-switch-test"
+          label="switch"
+          onChange={handleChangeTheme}
+          checked={theme}
+        />
         <NavBarItems openMenu={openMenu}>
           <ListItemNav>
             <Link to="/dashboard">Home</Link>
@@ -55,10 +61,18 @@ function NavBar({ dispatch }: any) {
             <Link to="/newpoll">New Poll</Link>
           </ListItemNav>
           <ListItemNav>
-            <button data-testid='navbar-button-logout-test' onClick={handleLogout}>Logout</button>
+            <button
+              data-testid="navbar-button-logout-test"
+              onClick={handleLogout}
+            >
+              Logout
+            </button>
           </ListItemNav>
         </NavBarItems>
-        <ButtonOpenMenu data-testid='navbar-button-open-test' onClick={handleOpenMenu}>
+        <ButtonOpenMenu
+          data-testid="navbar-button-open-test"
+          onClick={handleOpenMenu}
+        >
           <FaBars />
         </ButtonOpenMenu>
       </MenuItems>
@@ -66,4 +80,10 @@ function NavBar({ dispatch }: any) {
   );
 }
 
-export default connect()(NavBar);
+function mapStateToProps({ authedUser }: any) {
+  return {
+    authedUser,
+  };
+}
+
+export default connect(mapStateToProps)(NavBar);
