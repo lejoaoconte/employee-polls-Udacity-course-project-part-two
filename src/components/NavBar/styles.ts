@@ -20,7 +20,12 @@ export const MenuItems = styled.div`
 
   gap: 20px;
 `;
-export const NavBarItems = styled.ul`
+
+interface NavBarItemsProps {
+  openMenu: boolean;
+}
+
+export const NavBarItems = styled.ul<NavBarItemsProps>`
   list-style-type: none;
   margin: 0;
   padding: 0;

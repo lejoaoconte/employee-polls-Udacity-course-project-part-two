@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { ReactNode, useEffect } from "react";
 
 import { connect } from "react-redux";
 
@@ -6,7 +6,12 @@ import { useNavigate } from "react-router-dom";
 
 import NavBar from "components/NavBar";
 
-const PrivateRoute = ({ children, loggedIn }) => {
+interface PrivateRouteProps {
+  children: ReactNode;
+  loggedIn: boolean;
+}
+
+const PrivateRoute = ({ children, loggedIn }: PrivateRouteProps) => {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -26,7 +31,7 @@ const PrivateRoute = ({ children, loggedIn }) => {
   );
 };
 
-const mapStateToProps = ({ authedUser }) => ({
+const mapStateToProps = ({ authedUser }: any) => ({
   loggedIn: !!authedUser,
 });
 

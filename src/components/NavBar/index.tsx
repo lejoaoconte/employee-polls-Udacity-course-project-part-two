@@ -22,11 +22,12 @@ import {
 
 function NavBar({ dispatch, authedUser }: any) {
   const navigate = useNavigate();
-  const { setTheme, theme } = useContext(ContextDefaultTheme);
+  const { setTheme, theme }: any = useContext(ContextDefaultTheme);
   const [openMenu, setOpenMenu] = useState(false);
 
   function handleLogout() {
     dispatch(logoutUser());
+    localStorage.removeItem("authedUser");
     navigate("/");
   }
 
@@ -63,6 +64,7 @@ function NavBar({ dispatch, authedUser }: any) {
             <button
               data-testid="navbar-button-logout-test"
               onClick={handleLogout}
+              type="button"
             >
               Logout
             </button>

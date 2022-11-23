@@ -7,18 +7,18 @@ export function logoutUser() {
   };
 }
 
-export function setAuthedUser(user) {
+export function setAuthedUser(user: any) {
   return {
     type: SET_AUTHED_USER,
     user,
   };
 }
 
-export function onLoginUser(login, password) {
-  return (dispatch, getState) => {
+export function onLoginUser(login: string, password: string) {
+  return (dispatch: any, getState: any) => {
     const { users } = getState();
     const myUser = Object.values(users).find(
-      (user) => user.id === login && user.password === password
+      (user: any) => user.id === login && user.password === password
     );
 
     if (!!myUser) {

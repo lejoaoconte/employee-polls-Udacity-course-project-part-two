@@ -6,17 +6,17 @@ import { QuestionsArea, QuestionsItems } from "./styles";
 
 import { format } from "date-fns";
 
-export function Questions({ questions, users }) {
+export function Questions({ questions, users }: any) {
   const navigate = useNavigate();
 
-  function handleClick(questionId) {
+  function handleClick(questionId: string) {
     navigate(`/question/${questionId}`);
   }
 
   return (
     <QuestionsArea data-testid="questions-test">
       <QuestionsItems>
-        {questions?.map((question) => (
+        {questions?.map((question: any) => (
           <li
             data-testid="questions-item-test"
             key={question.id}
@@ -27,8 +27,10 @@ export function Questions({ questions, users }) {
               Created by{" "}
               <span>
                 {
-                  Object.values(users)?.find(
-                    (user) => user.id === question.author
+                  (
+                    Object.values(users)?.find(
+                      (user: any) => user.id === question.author
+                    ) as any
                   )?.name
                 }
               </span>

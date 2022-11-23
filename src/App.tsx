@@ -15,7 +15,7 @@ import NewQuestion from "pages/NewQuestion";
 import Leaderboard from "pages/Leaderboard";
 import Error404 from "pages/Error404";
 
-function App(props) {
+function App(props: any) {
   useEffect(() => {
     props.dispatch(handleInitialData());
   }, [props]);

@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 import { LeaderboardContainer, TableBord, UserArea } from "./styles";
 
-function Leaderboard({ users }) {
+function Leaderboard({ users }: any) {
   return (
     <LeaderboardContainer>
       <h1>Users Infos</h1>
@@ -17,7 +17,7 @@ function Leaderboard({ users }) {
           </tr>
         </thead>
         <tbody>
-          {Object.values(users).map((user) => (
+          {Object.values(users).map((user: any) => (
             <tr key={user.id}>
               <td>
                 <UserArea>
@@ -35,7 +35,7 @@ function Leaderboard({ users }) {
   );
 }
 
-function mapStateToProps({ questions, users }) {
+function mapStateToProps({ questions, users }: any) {
   return {
     questions,
     users,
